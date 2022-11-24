@@ -12,7 +12,6 @@ class GetInventoryLevelBySkuNumber {
    */
   static async run(sku) {
     try {
-      console.log('run GetInventoryLevelBySkuNumber')
         
       const client = new Shopify.Clients.Graphql(
         process.env.SHOPIFY_SHOP,

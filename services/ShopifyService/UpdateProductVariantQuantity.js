@@ -47,7 +47,7 @@ class UpdateProductVariantQuantity {
           });
           
           const newAvailableQuantity = response.body.data.inventoryAdjustQuantity.inventoryLevel.available;
-          console.log(newAvailableQuantity);
+
           console.log(`sku number: ${sku} has been updated with new quantity: ${newAvailableQuantity}`);
       } else {
           console.log(`no updates has been made for sku: ${sku} as it is not found on Shopify.`);
