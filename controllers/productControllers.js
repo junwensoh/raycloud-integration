@@ -8,13 +8,14 @@ exports.updateProductInfo = async (req, res) => {
 
     console.log(productUpdates);
 
+    res.json({ code: "0", message: "成功", success: true });
+
     if ("quantity" in productUpdates) {
       const { skuNo, quantity } = productUpdates;
 
       UpdateProductVariantQuantity.run(skuNo, quantity);
-      
-      res.json({ code: "0", message: "成功", success: true });
     }
+    
   } catch (error) {
     console.log(error);
     res.status(500).send();
