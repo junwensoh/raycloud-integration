@@ -3,9 +3,8 @@ const UpdateProductVariantQuantity = require("../services/ShopifyService/UpdateP
 exports.updateProductInfo = async (req, res) => {
   try {
     console.log("=====Product inventory/price update received from Raycloud webhook=====");
-
-    const productUpdates = req.body.data[0];
-
+    console.log(request.body);
+    const productUpdates = req.body.data;
     console.log(productUpdates);
 
     res.json({ code: "0", message: "成功", success: true });
