@@ -4,8 +4,7 @@ const GetInventoryLevelBySkuNumber = require('./GetInventoryLevelBySkuNumber');
 class UpdateProductVariantQuantity {
   static async run(sku, newInventoryLevelQuantity) {
     try {
-      console.log(sku);
-      console.log(newInventoryLevelQuantity);
+
       const client = new Shopify.Clients.Graphql(
         process.env.SHOPIFY_SHOP,
         process.env.SHOPIFY_ACCESS_TOKEN
@@ -14,7 +13,7 @@ class UpdateProductVariantQuantity {
       // we cannot update available quantity directly using ProductVariant and need to update it through InventoryLevel
       // hence, getting the inventoryLevelId from a graphQL query from line below to be used on next query.
       const inventoryLevel = await GetInventoryLevelBySkuNumber.run(sku);
-      console.log(inventoryLevel);
+
       if (inventoryLevel) {
           const availableDelta = newInventoryLevelQuantity - inventoryLevel.available;
   
